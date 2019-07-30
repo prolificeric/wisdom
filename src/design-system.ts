@@ -1,17 +1,22 @@
 import Color from 'color';
-import inputs from './inputs.json';
 
 export interface DesignSystem {
   colors: {
-    [key: string]: number[]
+    [key: string]: Color
   }
 }
 
-const baseColor = Color(inputs.baseColor.value);
+export interface InputDict {
+  [key: string]: any;
+}
 
-export default {
-  colors: {
-    base: baseColor.alpha(.5).rgb().array(),
-    darker: baseColor.darken(.5).desaturate(.25).rgb().array()
-  }
-} as DesignSystem;
+export const computeDesignSystem = (inputs: InputDict): DesignSystem => {
+  const baseColor = Color(inputs.baseColor.value);
+  
+  return {
+    colors: {
+      base: baseColor.alpha(.5).rgb(),
+      darker: baseColor.darken(.5).desaturate(.25).rgb()
+    }
+  };
+};

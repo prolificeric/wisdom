@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "jsx": "react",
     "resolveJsonModule": true,
     "incremental": true,
     "target": "es5",

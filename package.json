@@ -1,0 +1,26 @@
+{
+  "name": "wisdom",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "color": "^3.1.2",
+    "lodash": "^4.17.15"
+  },
+  "devDependencies": {
+    "@types/color": "^3.0.0",
+    "husky": "^3.0.2",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.3"
+  },
+  "scripts": {
+    "build": "mkdir -p dist && rm -rf dist/* && ts-node scripts/build > dist/design-system.json"
+  },
+  "author": "",
+  "license": "ISC",
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm build"
+    }
+  }
+}
